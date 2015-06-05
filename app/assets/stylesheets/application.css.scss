@@ -16,3 +16,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+button.board-item {
+  height: 100px;
+  width: 300px;
+  margin: 20px;
+  font-size: 22px;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
