@@ -1,14 +1,12 @@
-TrelloClone.Views.BoardsIndexItem = Backbone.View.extend({
-  template: JST['boards/index_item'],
-  className: "board-item btn btn-primary",
-  tagName: "button",
+TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
+  template: JST['boards/show'],
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
   },
 
+
   events: {
-    "click": "selectBoard",
   },
 
   render: function () {

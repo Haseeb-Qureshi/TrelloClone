@@ -1,4 +1,12 @@
-# write some jbuilder to return some json about a board
-# it should include the board
-#  - its lists
-#    - the cards for each list
+json.(@board, :title, :user_id, :id)
+
+json.members @board.members do |json, member|
+  json.(member, :email, :id)
+end
+
+json.lists @board.lists do |json, list|
+  json.(list, :title, :ord)
+  json.cards list.cards do |json, card|
+    json.(card, :title, :list_id, :description, :ord)
+  end
+end
