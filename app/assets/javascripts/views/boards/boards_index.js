@@ -6,6 +6,7 @@ TrelloClone.Views.BoardsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "add", this.addBoard);
     this.collection.each(this.addBoard.bind(this));
+    this.addSubview(".add-board", new TrelloClone.Views.AddBoard());
   },
 
   render: function () {
