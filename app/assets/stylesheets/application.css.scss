@@ -62,4 +62,9 @@ div.card {
   margin: 3px 10px;
   border-radius: 4px;
   border-bottom: 1px solid #AAA;
+  position: relative;
+}
+
+div.cards {
+  min-height: 20px;
 }

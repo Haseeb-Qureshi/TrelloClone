@@ -6,6 +6,7 @@ TrelloClone.Views.AddBoard = Backbone.View.extend({
   events: {
     "click button.board-add": "dropForm",
     "blur input": "createBoard",
+    "submit": "handleSubmit"
   },
 
   render: function () {
@@ -15,6 +16,11 @@ TrelloClone.Views.AddBoard = Backbone.View.extend({
 
   dropForm: function () {
     this.$el.html(this.formTemplate);
+  },
+
+  handleSubmit: function (event) {
+    event.preventDefault();
+    this.$("input").blur();
   },
 
   createBoard: function (event) {
