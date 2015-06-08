@@ -17,6 +17,24 @@
 @import "bootstrap";
 @import "font-awesome";
 
+body {
+  background: -webkit-linear-gradient(70deg, #008AE6, #006EB8); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(70deg, #008AE6, #006EB8); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(70deg, #008AE6, #006EB8); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(70deg, #008AE6, #006EB8); /* Standard syntax */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+nav.navbar {
+  background-color: #006EB8;
+  border: none;
+}
+
+.navbar-default a.navbar-brand {
+  color: white;
+}
+
 button.board-item {
   height: 100px;
   width: 300px;
@@ -54,6 +72,9 @@ div.list {
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
 }
 
 div.card {
@@ -63,6 +84,8 @@ div.card {
   border-radius: 4px;
   border-bottom: 1px solid #AAA;
   position: relative;
+  overflow: hidden;
+
 }
 
 div.cards {
@@ -107,8 +130,11 @@ button.delete-card {
 }
 
 button.card-add {
+  position: relative;
+  display: block;
   margin: auto;
   background: #CCC;
+  border: none;
 }
 
 .group {
@@ -119,4 +145,57 @@ button.card-add {
   content: "";
   display: block;
   clear: both;
+}
+
+.neverending-col {
+  width: 150px;
+  white-space: nowrap;
+}
+
+div.container {
+  white-space: nowrap;
+}
+
+input.new-card {
+  width: 110px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-radius: 4px;
+}
+
+button.add-btn {
+  margin-top: 4px;
+}
+
+div.backdrop {
+  top: 50px;
+  position: relative;
+}
+
+div.container.container-fluid {
+  width: 100%;
+}
+
+nav.navbar.navbar-default {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+div.add-list-container {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+div.list-add {
+  position: absolute;
+  bottom: -15px;
+}
+
+div.new-list {
+  background: #DDD;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  overflow: hidden;
 }

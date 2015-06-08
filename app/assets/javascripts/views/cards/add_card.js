@@ -1,12 +1,12 @@
-TrelloClone.Views.AddBoard = Backbone.View.extend({
-  addTemplate: JST['cards/add_card'],
+TrelloClone.Views.AddCard = Backbone.View.extend({
+  addTemplate: JST['cards/add_button'],
   formTemplate: JST['cards/form'],
   className: "add-card",
 
   events: {
     "click button.card-add": "dropForm",
-    "blur input": "createCard",
-    "submit": "handleSubmit"
+    "click button.add-btn": "createCard",
+    "keyup": "checkEnter",
   },
 
   render: function () {
@@ -16,11 +16,15 @@ TrelloClone.Views.AddBoard = Backbone.View.extend({
 
   dropForm: function () {
     this.$el.html(this.formTemplate);
+    window.setTimeout(function () {
+      $("input").focus();
+    }.bind(this), 0);
   },
 
-  handleSubmit: function (event) {
-    event.preventDefault();
-    this.$("input").blur();
+  checkEnter: function (event) {
+    if (event.keyCode === 13) {
+      $('.add-btn').click();
+    }
   },
 
   createCard: function (event) {
@@ -30,7 +34,7 @@ TrelloClone.Views.AddBoard = Backbone.View.extend({
     newCard.set(this.$('form').serializeJSON());
     newCard.save({ list_id: this.model.id }, {
       success: function () {
-        that.collection.add(newCard);
+        that.model.cards.add(newCard);
         that.render();
       }
     });
