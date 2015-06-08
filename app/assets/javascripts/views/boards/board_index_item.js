@@ -39,10 +39,10 @@ TrelloClone.Views.BoardsIndexItem = Backbone.View.extend({
   },
 
   showDelete: function (event) {
-    this.$el.find('button.delete-board').removeClass('hidden');
+    this.$el.find('button.delete-board').removeClass('invisible');
   },
 
   removeDelete: function (event) {
-    this.$el.find('button.delete-board').addClass('hidden');
+    this.$el.find('button.delete-board').addClass('invisible');
   }
 });
