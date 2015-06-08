@@ -76,3 +76,19 @@ div.cards {
 .hide {
   display: none;
 }
+
+button.delete-board {
+  position: absolute;
+  bottom: 25px;
+  right: -5px;
+}
+
+.group {
+  position: relative;
+}
+
+.group::after {
+  content: "";
+  display: block;
+  clear: both;
+}

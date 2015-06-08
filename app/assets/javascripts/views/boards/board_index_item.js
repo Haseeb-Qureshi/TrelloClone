@@ -8,8 +8,7 @@ TrelloClone.Views.BoardsIndexItem = Backbone.View.extend({
   },
 
   events: {
-    "click button.delete-board": "deleteBoard",
-    "click not:button.delete-board": "selectBoard",
+    "click": "selectOrDelete",
     "mouseover": "showDelete",
     "mouseout": "removeDelete",
   },
@@ -17,6 +16,14 @@ TrelloClone.Views.BoardsIndexItem = Backbone.View.extend({
   render: function () {
     this.$el.html(this.template({ board: this.model }));
     return this;
+  },
+
+  selectOrDelete: function (event) {
+    if ($(event.target).hasClass("delete-board")) {
+      this.deleteBoard(event);
+    } else {
+      this.selectBoard(event);
+    }
   },
 
   deleteBoard: function (event) {
