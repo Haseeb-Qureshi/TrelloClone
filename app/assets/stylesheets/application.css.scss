@@ -68,3 +68,11 @@ div.card {
 div.cards {
   min-height: 20px;
 }
+
+.dragged {
+  transform: rotate(7deg);
+}
+
+.hide {
+  display: none;
+}

@@ -8,7 +8,10 @@ TrelloClone.Views.BoardsIndexItem = Backbone.View.extend({
   },
 
   events: {
-    "click": "selectBoard",
+    "click button.delete-board": "deleteBoard",
+    "click not:button.delete-board": "selectBoard",
+    "mouseover": "showDelete",
+    "mouseout": "removeDelete",
   },
 
   render: function () {
@@ -16,8 +19,23 @@ TrelloClone.Views.BoardsIndexItem = Backbone.View.extend({
     return this;
   },
 
+  deleteBoard: function (event) {
+    event.preventDefault();
+    this.model.destroy({
+      success: this.remove.bind(this),
+    });
+  },
+
   selectBoard: function (event) {
     event.preventDefault();
     Backbone.history.navigate('boards/' + this.model.id, { trigger: true });
   },
+
+  showDelete: function (event) {
+    this.$el.find('button.delete-board').removeClass('hidden');
+  },
+
+  removeDelete: function (event) {
+    this.$el.find('button.delete-board').addClass('hidden');
+  }
 });
