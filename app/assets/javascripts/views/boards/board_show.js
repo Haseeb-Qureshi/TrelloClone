@@ -26,20 +26,13 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
     var that = this;
     window.setTimeout(function () {
       $(".lists").sortable({
-        connectWith: ".lists",
-        remove: function (event, ui) {
-        },
-        receive: function (event, ui) {
-          var newList = ui.sender;
-          var newOrd = ui.position;
-          debugger
-          // var card = that.model.cards.get(ui.item.attr('id'));
-          // DO MORE STUFF HERE TO MAKE THIS WORK. doesn't work yet.
-        },
         update: function (event, ui) {
-          var newList = ui.sender;
-          var newOrd = ui.position;
-          debugger
+          var data = $(this).sortable('toArray');
+          data.forEach(function (listNo, i) {
+            var id = listNo.slice(5);
+            var list = that.model.lists.get(id).set("ord", i);
+            list.save();
+          });
         }
       }).disableSelection();
     }, 0);
