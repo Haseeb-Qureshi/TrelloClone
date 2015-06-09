@@ -35,11 +35,12 @@ nav.navbar {
   color: white;
 }
 
-button.board-item {
+button.board-item.btn-primary {
   height: 100px;
   width: 300px;
   margin: 20px;
   font-size: 22px;
+  background-color: #64B6FD;
 }
 
 h1.white {
