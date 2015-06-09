@@ -1,7 +1,7 @@
 TrelloClone.Views.CardShow = Backbone.View.extend({
   template: JST['cards/show'],
   className: "card sortable",
-  id: function () { return this.model.id; },
+  id: function () { return "card-" + this.model.id; },
 
   initialize: function() {
     this.listenTo(this.model, "sync change", this.render);

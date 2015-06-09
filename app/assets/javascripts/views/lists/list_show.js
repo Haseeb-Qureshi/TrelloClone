@@ -1,7 +1,7 @@
 TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
   template: JST['lists/show'],
   className: "list neverending-col group",
-  id: function () { return this.model.id; },
+  id: function () { return "list-" + this.model.id; },
 
   initialize: function () {
     this.listenTo(this.model, "change sync", this.render);

@@ -18,7 +18,31 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({ board: this.model }));
     this.attachSubviews();
+    this.onRender();
     return this;
+  },
+
+  onRender: function () {
+    var that = this;
+    window.setTimeout(function () {
+      $(".lists").sortable({
+        connectWith: ".lists",
+        remove: function (event, ui) {
+        },
+        receive: function (event, ui) {
+          var newList = ui.sender;
+          var newOrd = ui.position;
+          debugger
+          // var card = that.model.cards.get(ui.item.attr('id'));
+          // DO MORE STUFF HERE TO MAKE THIS WORK. doesn't work yet.
+        },
+        update: function (event, ui) {
+          var newList = ui.sender;
+          var newOrd = ui.position;
+          debugger
+        }
+      }).disableSelection();
+    }, 0);
   },
 
   addList: function (list) {

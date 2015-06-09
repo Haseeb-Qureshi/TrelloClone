@@ -42,6 +42,10 @@ button.board-item {
   font-size: 22px;
 }
 
+h1.white {
+  color: white;
+}
+
 .add-board {
   float: left;
 }
@@ -72,7 +76,6 @@ div.list {
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
-  overflow: hidden;
   display: inline-block;
   position: relative;
 }
@@ -85,15 +88,10 @@ div.card {
   border-bottom: 1px solid #AAA;
   position: relative;
   overflow: hidden;
-
 }
 
 div.cards {
   min-height: 20px;
-}
-
-.dragged {
-  transform: rotate(7deg);
 }
 
 .invisible {
@@ -197,5 +195,16 @@ div.new-list {
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
+  overflow: hidden;
+}
+
+.ui-sortable-helper {
+  transform: rotate(4deg);
+  box-shadow: 0px 3px 2px #888888;
+  z-index: 1000000;
+  overflow: visible;
+}
+
+.contained {
   overflow: hidden;
 }
